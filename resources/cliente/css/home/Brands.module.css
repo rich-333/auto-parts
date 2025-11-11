@@ -7,18 +7,18 @@
     }
   }
 
-  .animate-marquee {
+  .animate__marquee {
     display: flex;
     width: 200%;
     animation: marquee 30s linear infinite;
   }
 
-  .animate-marquee:hover {
+  .animate__marquee:hover {
     animation-play-state: paused;
   }
 
-  .carousel-fade::before,
-  .carousel-fade::after {
+  .carousel__fade::before,
+  .carousel__fade::after {
     content: "";
     position: absolute;
     top: 0;
@@ -28,12 +28,12 @@
     pointer-events: none;
   }
 
-  .carousel-fade::before {
+  .carousel__fade::before {
     left: 0;
     background: linear-gradient(to right, #f5f8fb, transparent);
   }
 
-  .carousel-fade::after {
+  .carousel__fade::after {
     right: 0;
     background: linear-gradient(to left, #f5f8fb, transparent);
   }

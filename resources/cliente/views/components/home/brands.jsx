@@ -1,9 +1,9 @@
-import "../../../css/home/Brands.css"
+import styles from "../../../css/home/Brands.module.css"
 
 export function Brands() {
   return(
-    <div className="relative overflow-hidden border-y-2 border-carousel-border my-4 carousel-fade">
-      <div className="flex animate-marquee space-x-16 py-6">
+    <div className={`relative overflow-hidden border-y-2 border-carousel-border my-4 ${styles.carousel__fade}`}>
+      <div className={`flex ${styles.animate__marquee} space-x-16 py-6`}>
         <img src="images/components/clients/home/brands/audi.svg" alt="Audi" className="h-16 object-contain" />
         <img src="images/components/clients/home/brands/bmw.svg" alt="BMW" className="h-16 object-contain" />
         <img src="images/components/clients/home/brands/chevrolet.svg" alt="Chevrolet" className="h-16 object-contain" />

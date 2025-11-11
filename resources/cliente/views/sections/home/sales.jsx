@@ -1,4 +1,4 @@
-import "../../../css/home/Sales.css"
+import styles from "../../../css/home/Sales.module.css"
 import { ButtonPrimary } from "../../components/ui/buttons/buttonPrimary"
 
 export function Sales() {
@@ -16,7 +16,7 @@ export function Sales() {
       </div>
 
 
-      <div className=" bg-sales bg-cover bg-center bg-no-repeat w-[299px] h-[936px] mx-3 text-center text-black pt-10">
+      <div className={`${styles.bg__sales} bg-cover bg-center bg-no-repeat w-[299px] h-[936px] mx-3 text-center text-black pt-10`}>
         <p className=" text-black/50 text-xs font-semibold mb-2">PIEZAS DE ALTA CALIDAD</p>
         <h3 className=" font-extrabold text-2xl px-7">Obtenga mas millas por menos</h3>
         <p className=" text-sm font-normal my-3">Buscar por marca.</p>

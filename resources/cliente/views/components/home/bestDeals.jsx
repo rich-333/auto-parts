@@ -1,8 +1,8 @@
-import "../../../css/home/BestDeals.css"
+import styles from "../../../css/home/BestDeals.module.css"
 
 export function BestDeals() {
   return(
-    <div className=" bg-hero bg-cover bg-center bg-no-repeat h-[620px]">
+    <div className={`${styles.bg__hero}  bg-hero bg-cover bg-center bg-no-repeat h-[620px]`}>
       <div className=" w-full h-full flex flex-col justify-center items-center px-5">
         <p className=" text-sm lg:text-lg text-white/70 font-normal">Encuentra las mejores ofertas</p>
         <h2 className=" text-center w-2xl text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-18">Encuentra las mejores piezas para tu vehículo</h2>
