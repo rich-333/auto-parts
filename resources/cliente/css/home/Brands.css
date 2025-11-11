@@ -1,0 +1,39 @@
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    display: flex;
+    width: 200%;
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  .carousel-fade::before,
+  .carousel-fade::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .carousel-fade::before {
+    left: 0;
+    background: linear-gradient(to right, #f5f8fb, transparent);
+  }
+
+  .carousel-fade::after {
+    right: 0;
+    background: linear-gradient(to left, #f5f8fb, transparent);
+  }
