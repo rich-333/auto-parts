@@ -1,18 +1,16 @@
 import styles from "../../../css/home/Sales.module.css"
 import { ButtonPrimary } from "../../components/ui/buttons/buttonPrimary"
+import { CardProduct } from "../../components/ui/product/cardProduct"
 
 export function Sales() {
   return(
     <section className="flex my-10">
   
       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-10">
-        {/*
-        @forelse ($productosConDescuento as $producto)
-          <x-product :producto="$producto" />
-        @empty
-          <p>No hay productos con descuento disponibles.</p>
-        @endforelse*/
-        }
+        <CardProduct/>
+        <CardProduct/>
+        <CardProduct/>
+        <CardProduct/>
       </div>
 
 
@@ -25,13 +23,10 @@ export function Sales() {
 
 
       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-10">
-        {/*
-        @forelse ($productosConDescuento as $producto)
-          <x-product :producto="$producto" />
-        @empty
-          <p>No hay productos con descuento disponibles.</p>
-        @endforelse
-        */}
+        <CardProduct/>
+        <CardProduct/>
+        <CardProduct/>
+        <CardProduct/>
       </div>
 
     </section>
