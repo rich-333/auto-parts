@@ -3,6 +3,7 @@ import { Ads } from "../sections/home/ads"
 import { Hero } from "../sections/home/hero"
 import { Sales } from "../sections/home/sales"
 import { BestSellers } from "../sections/home/bestSellers"
+import { Contact } from "../sections/home/contact"
 
 export function Home() {
   return (
@@ -12,6 +13,7 @@ export function Home() {
         <Sales/>
         <Ads/>
         <BestSellers/>
+        <Contact/>
       </main>
     </LayoutCliente>
   )
