@@ -2,6 +2,7 @@ import { LayoutCliente } from "../layouts/layoutCliente"
 import { Ads } from "../sections/home/ads"
 import { Hero } from "../sections/home/hero"
 import { Sales } from "../sections/home/sales"
+import { BestSellers } from "../sections/home/bestSellers"
 
 export function Home() {
   return (
@@ -10,6 +11,7 @@ export function Home() {
         <Hero/>
         <Sales/>
         <Ads/>
+        <BestSellers/>
       </main>
     </LayoutCliente>
   )
