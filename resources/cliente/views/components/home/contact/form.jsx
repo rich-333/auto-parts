@@ -27,7 +27,7 @@ export function Form() {
         <textarea  className=" bg-white border-2 border-form-border shadow-xs rounded-lg py-2.5 px-2 focus:outline-discount/45" name="" id="mensaje" cols="5" rows="4"></textarea>
       </div>
 
-      <button className=" bg-discount w-36 h-11 rounded-lg text-white font-semibold mt-3" type="submit">Enviar mensaje</button>
+      <button className=" bg-discount w-36 h-11 rounded-lg text-white font-semibold mt-3 active:outline-4 outline-discount active:outline-offset-2 hover:scale-105 active:scale-95 transition-all duration-300 ease-out" type="submit">Enviar mensaje</button>
     </form> 
   )
 }
