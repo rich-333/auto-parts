@@ -12,7 +12,7 @@
     'resources/admin/js/main.jsx'
   ])
 </head>
-<body>
+<body class=" bg-gray-200 box-border">
   <div id="root"></div>
 </body>
 </html>
