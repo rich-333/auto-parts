@@ -1,10 +1,14 @@
+import { SectionSearch } from "../components/ui/search/sectionSearch"
 import { Sidebar } from "../components/ui/sidebar/sidebar"
 
 export function LayoutAdmin({ children }) {
   return(
-    <div className=" bg-amber-200 grid grid-cols-[300px_1fr]">
-      <Sidebar/>
-      <main className=" my-3 ml-59 w-7xl">
+    <div className=" grid grid-cols-[225px_1fr]">
+      <div>
+        <Sidebar/>
+      </div>
+      <main className="my-3 px-5">
+        <SectionSearch/>
         { children }
       </main>
     </div>
