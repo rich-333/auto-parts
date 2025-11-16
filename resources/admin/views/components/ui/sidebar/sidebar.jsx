@@ -11,7 +11,7 @@ const menuItems = [
   { name: 'Dashboard', icon: Home, link: '/dashboard', active: true },
   { name: 'Productos', icon: Box, link: '/products' },
   { name: 'Categorias', icon: Tag, link: '/categories' },
-  { name: 'Pedidos', icon: Mail, link: '/messages' }, 
+  { name: 'Pedidos', icon: Mail, link: '/orders' }, 
 ];
 
 export function Sidebar() {

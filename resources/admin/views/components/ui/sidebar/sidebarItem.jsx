@@ -1,12 +1,9 @@
-export function SidebarItem({ name, Icon, link, active, badge }) {
-  const baseClasses = "flex items-center p-3 rounded-lg text-gray-700 cursor-pointer hover:bg-indigo-50 transition-colors";
-  
-  const activeClasses = active
-    ? "bg-indigo-100/70 border-l-4 border-indigo-600 font-semibold text-indigo-800"
-    : "";
+import { NavLink } from 'react-router-dom';
 
+export function SidebarItem({ name, Icon, link, active, badge }) {
   return (
-    <a href={link} className={`${baseClasses} ${activeClasses} relative`}>
+    <NavLink to={link} className={({ isActive }) => `flex items-center p-3 rounded-lg text-gray-700 cursor-pointer hover:bg-indigo-50 transition-colors 
+      ${ isActive ? 'bg-indigo-100/70 border-l-4 border-indigo-600 font-semibold text-indigo-800' : ''}` }>
 
       <Icon className="w-5 h-5 mr-3" />
       
@@ -17,6 +14,6 @@ export function SidebarItem({ name, Icon, link, active, badge }) {
           {badge}
         </span>
       )}
-    </a>
+    </NavLink>
   );
 }
