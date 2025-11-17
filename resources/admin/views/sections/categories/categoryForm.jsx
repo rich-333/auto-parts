@@ -1,16 +1,23 @@
 import { Tag, PlusCircle, AlignLeft } from 'lucide-react';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InputGroup } from '../../components/ui/input/inputGroup';
 import { InputMainImage } from '../../components/ui/input/inputMainImage';
+import { createCategory } from '../../../services/categoryService';
+import { updateCategory } from '../../../services/categoryService';
+import { useNavigate } from "react-router-dom";
 
-export function CategoryForm() {
+export function CategoryForm({ category }) {
+
+  const navigate = useNavigate();
+  const [errors, setErrors] = useState({});
 
   const [formData, setFormData] = useState({
-    nombre: '',
-    descripcion: '',
-    activa: true, 
+    nombre: category?.nombre || '',
+    descripcion: category?.descripcion || '',
+    activa: category?.activa ?? true,
+    url_imagen: null
   });
-
+  
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     
@@ -20,11 +27,62 @@ export function CategoryForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Datos de la Categoría a Enviar:', formData);
-    
-    alert('Categoría lista para ser creada. Revisa la consola.');
+
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({}); 
+
+    try {
+      const form = new FormData();
+      form.append('nombre', formData.nombre);
+      form.append('descripcion', formData.descripcion);
+      form.append('activa', formData.activa ? 1 : 0);
+      if (formData.url_imagen) {
+        form.append('url_imagen', formData.url_imagen);
+      }
+
+      if (category) {
+
+        await updateCategory(category.id_categoria, form);
+        alert("Categoría actualizada correctamente");
+      } else {
+
+        await createCategory(form);
+        alert("Categoría creada correctamente");
+      }
+
+      navigate("/categories");
+
+    } catch (error) {
+      alert("Error al guardar la categoría");
+      console.error(error);
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.nombre.trim()) {
+      newErrors.nombre = "El nombre es obligatorio.";
+    }
+
+    if (!formData.descripcion.trim()) {
+      newErrors.descripcion = "La descripción es obligatoria.";
+    } else if (formData.descripcion.length < 10) {
+      newErrors.descripcion = "La descripción debe tener al menos 10 caracteres.";
+    }
+
+    if (!category && !formData.url_imagen) {
+      newErrors.url_imagen = "Debes seleccionar una imagen.";
+    }
+
+    return newErrors;
   };
 
   return(
@@ -35,17 +93,19 @@ export function CategoryForm() {
       </div>
 
       <form onSubmit={handleSubmit} className="w-full">
-        {/* 1. INFORMACIÓN BÁSICA DE CATEGORÍA */}
+
         <div className="flex flex-wrap -mx-3 border-b pb-6 mb-6">
           <h3 className="w-full px-3 text-xl font-semibold text-gray-700 mb-4">
             <Tag className="w-5 h-5 inline mr-2" />
             Detalles de Clasificación
           </h3>
           
-          {/* Nombre */}
+
           <InputGroup label="Nombre de la Categoría (Ej: Frenos y Suspensión)" name="nombre" icon={Tag} onChangeInput={handleChange} formData={formData}/>
+          {errors.nombre && (
+            <p className="text-red-600 text-xs ml-3 mb-2.5">{errors.nombre}</p>
+          )}
           
-          {/* Descripción */}
           <div className="w-full px-3 mb-6">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="descripcion">
               Descripción
@@ -59,19 +119,30 @@ export function CategoryForm() {
               placeholder="Ej: Repuestos relacionados con el sistema de frenado y amortiguadores..."
               rows="3"
             />
+            {errors.descripcion && (
+              <p className="text-red-600 text-xs my-3">{errors.descripcion}</p>
+            )}
           </div>
 
-          <InputMainImage/>
+          <div className=' w-full'>
+            <InputMainImage 
+              name="url_imagen" 
+              initialImage={category?.url_imagen ? `http://127.0.0.1:8000/${category.url_imagen}` : null}
+              onImageSelect={(file) => 
+                setFormData(prev => ({ ...prev, url_imagen: file }))
+            }/>
+            {errors.url_imagen && (
+              <p className="text-red-600 text-xs mt-1 ml-3">{errors.url_imagen}</p>
+            )}
+          </div>
         </div>
         
-        {/* 2. ESTADO DE ACTIVIDAD */}
         <div className="flex flex-wrap -mx-3 border-b pb-6 mb-6">
           <h3 className="w-full px-3 text-xl font-semibold text-gray-700 mb-4">
             <AlignLeft className="w-5 h-5 inline mr-2" />
             Opciones
           </h3>
           
-          {/* Estado Activo (Checkbox) */}
           <div className="w-full px-3 mb-6">
             <div className="flex items-center">
               <input
@@ -90,14 +161,13 @@ export function CategoryForm() {
           </div>
         </div>
 
-        {/* 3. BOTÓN DE ENVÍO */}
         <div className="flex justify-end pt-4">
           <button
             type="submit"
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition duration-150 ease-in-out flex items-center"
           >
             <PlusCircle className="w-5 h-5 mr-2" />
-            Crear Categoría
+            {category ? 'Actualizar Categoria' : 'Crear Categoría'}
           </button>
         </div>
       </form>
