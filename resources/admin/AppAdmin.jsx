@@ -6,6 +6,7 @@ import { CategoriesCreate } from "./views/pages/category/categoriesCreate";
 import { Dashboard } from './views/pages/dashboard/dashboard';
 import { Products } from './views/pages/product/products';
 import { Orders } from './views/pages/order/orders';
+import { CategoriesEdit } from './views/components/categories/categoriesEdit';
 
 export function AppAdmin() {
   return(
@@ -21,6 +22,7 @@ export function AppAdmin() {
             <Route path='/orders' element={<Orders/>} />
 
             <Route path="/categories/create" element={<CategoriesCreate />} />
+            <Route path="/categories/edit/:id" element={<CategoriesEdit />} />
           </Routes>
         </div>
       </BrowserRouter>

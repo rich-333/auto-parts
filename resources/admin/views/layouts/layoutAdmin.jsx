@@ -1,4 +1,3 @@
-import { SectionSearch } from "../components/ui/search/sectionSearch"
 import { Sidebar } from "../components/ui/sidebar/sidebar"
 
 export function LayoutAdmin({ children }) {
@@ -8,7 +7,6 @@ export function LayoutAdmin({ children }) {
         <Sidebar/>
       </div>
       <main className="my-3 px-5">
-        <SectionSearch/>
         { children }
       </main>
     </div>
