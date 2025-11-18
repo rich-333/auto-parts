@@ -1,0 +1,4 @@
+.pagination__active {
+  background-color: var(--color-discount);
+  color: white;
+}
