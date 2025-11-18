@@ -1,5 +1,5 @@
-import { AdOffer } from "../../components/home/adOffer"
-import { AdParts } from "../../components/home/adParts"
+import { AdOffer } from "../../components/home/ads/adOffer"
+import { AdParts } from "../../components/home/ads/adParts"
 
 export function Ads() {
 	return(
