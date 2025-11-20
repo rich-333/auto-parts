@@ -9,10 +9,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/cliente/js/main.jsx', 
-                //'resources/cliente/AppCliente.jsx',
-                'resources/admin/js/main.jsx',
-                //'resources/admin/AppAdmin.jsx'
+                //'resources/cliente/js/main.jsx', 
+                'resources/cliente/AppCliente.jsx',
+                //'resources/admin/js/main.jsx',
+                'resources/admin/AppAdmin.jsx'
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
@@ -31,28 +31,10 @@ export default defineConfig({
         jsx: 'automatic',
     },
     build: {
-        manifest: true,
+        manifest: 'manifest.json',
         outDir: 'public/build',
-        rollupOptions: {
-            output: {
-                assetFileNames: (assetInfo) => {
-                    if (!assetInfo.name) return 'assets/[name]-[hash][extname]';
-                    
-                    let extType = assetInfo.name.split('.')[1];
-                    if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-                        extType = 'img';
-                    } else if (/css/i.test(extType)) {
-                        extType = 'css';
-                    } else {
-                        extType = 'js';
-                    }
-                    return `assets/${extType}/[name]-[hash][extname]`;
-                },
-                chunkFileNames: 'assets/js/[name]-[hash].js',
-                entryFileNames: 'assets/js/[name]-[hash].js',
-            },
-        },
+        emptyOutDir: true,
     },
     
-    base: process.env.NODE_ENV === 'production' ? '/build/' : '/',
+    publicDir: false,
 });
