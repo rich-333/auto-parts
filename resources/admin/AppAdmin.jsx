@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Sidebar } from './views/components/ui/sidebar/sidebar';
 import { Categories } from "./views/pages/category/categories";
 import { CategoriesCreate } from "./views/pages/category/categoriesCreate";
-import { Dashboard } from './views/pages/dashboard/dashboard';
+import { Dashboard } from './views/pages/dashboard/dashboard.jsx';
 import { Products } from './views/pages/product/products';
 import { Orders } from './views/pages/order/orders';
 import { CategoriesEdit } from './views/components/categories/categoriesEdit';
