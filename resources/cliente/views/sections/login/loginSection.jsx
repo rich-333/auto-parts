@@ -12,7 +12,7 @@ export function LoginSection() {
         <LoginForm />
         <Politics />
         <div class="border-t border-gray-200 my-6"></div>
-        <Account question="¿No tienes una cuenta?" text="Regístrate" link="#"/>
+        <Account question="¿No tienes una cuenta?" text="Regístrate" link="/signup"/>
       </div>
     </section>
   )

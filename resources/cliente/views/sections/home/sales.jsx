@@ -18,7 +18,7 @@ export function Sales() {
         <p className=" text-black/50 text-xs font-semibold mb-2">PIEZAS DE ALTA CALIDAD</p>
         <h3 className=" font-extrabold text-2xl px-7">Obtenga mas millas por menos</h3>
         <p className=" text-sm font-normal my-3">Buscar por marca.</p>
-        <ButtonPrimary text="Comprar ahora" styles="text-white bg-discount hover:from-discount hover:to-discount/10 mx-auto rounded-full w-36 h-11"/>
+        <ButtonPrimary link="/tienda" text="Comprar ahora" styles="text-white bg-discount hover:from-discount hover:to-discount/10 mx-auto rounded-full w-36 h-11 text-xs lg:text-base font-semibold "/>
       </div>
 
 
