@@ -9,10 +9,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                //'resources/cliente/js/main.jsx', 
-                'resources/cliente/AppCliente.jsx',
-                //'resources/admin/js/main.jsx',
-                'resources/admin/AppAdmin.jsx'
+                'resources/cliente/js/main.jsx', 
+                //'resources/cliente/AppCliente.jsx',
+                'resources/admin/js/main.jsx',
+                //'resources/admin/AppAdmin.jsx'
             ],
             ssr: 'resources/js/ssr.tsx',
             refresh: true,
