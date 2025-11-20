@@ -36,5 +36,16 @@ export default defineConfig({
         emptyOutDir: true,
     },
     
+    // CONFIGURACIÓN CLAVE PARA HTTPS
+    base: process.env.NODE_ENV === 'production' ? '/build/' : '/',
     publicDir: false,
+    
+    // Configuración del servidor para forzar HTTPS
+    server: {
+        hmr: process.env.NODE_ENV === 'development' ? {
+            host: 'localhost',
+            protocol: 'ws'
+        } : undefined,
+    },
+
 });
