@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -18,4 +18,3 @@ class Marca extends Model{
         return $this->hasMany(Producto::class, 'id_marca');
     }
 }
-?>

@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -7,6 +7,7 @@ class Producto extends Model
 {
     protected $table = 'productos';
     protected $primaryKey = 'id_producto';
+    public $timestamps = false;
 
     protected $fillable = [
         'nombre',
@@ -57,6 +58,9 @@ class Producto extends Model
     {
         return $this->hasMany(DetallePedido::class, 'id_producto');
     }
-}
 
-?>
+    public function descuento()
+    {
+        return $this->hasMany(Descuento::class, 'id_producto');
+    }
+}

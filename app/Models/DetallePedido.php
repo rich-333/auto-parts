@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -26,5 +26,3 @@ class DetallePedido extends Model {
         return $this->belongsTo(Producto::class, 'id_producto');
     }
 }
-
-?>
