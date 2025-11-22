@@ -1,16 +1,36 @@
+import { useEffect, useState } from "react";
 import styles from "../../../css/home/Sales.module.css"
 import { ButtonPrimary } from "../../components/ui/buttons/buttonPrimary"
 import { CardProduct } from "../../components/ui/product/cardProduct"
+import { getSaleProducts } from "../../../services/home/salesProducts"
 
 export function Sales() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const items = await getSaleProducts();
+      setProducts(items);
+      setLoading(false);
+    }
+    fetchProducts();
+  }, []);
+
+  if (loading) return  <p>Cargando productos...</p>
+
+  const leftProducts = products.slice(0, 4);
+  const rightProducts = products.slice(4, 8);
+
   return(
     <section className="flex my-10">
   
       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-10">
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
+        {
+          leftProducts.map(product => (
+            <CardProduct key={product.id_producto} product={product}/>
+          ))
+        }
       </div>
 
 
@@ -23,10 +43,11 @@ export function Sales() {
 
 
       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-10">
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
-        <CardProduct/>
+        {
+          rightProducts.map(product => (
+            <CardProduct key={product.id_producto} product={product}/>
+          ))
+        }
       </div>
 
     </section>

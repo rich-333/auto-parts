@@ -19,4 +19,9 @@ class Descuento extends Model
         'activo'
     ];
 
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class, 'id_producto');
+    }
+
 }
