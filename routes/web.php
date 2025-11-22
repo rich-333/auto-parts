@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
-use App\Http\Controllers\Api\Admin\CategoryController;
+use App\Http\Controllers\Api\Client\CategoryController;
 use App\Http\Controllers\Api\Client\ProductController;  
 
 
@@ -37,3 +37,4 @@ Route::put('/categorias/editar/{id}', [CategoryController::class, 'update']);
 
 Route::get('/client/home/products', [ProductController::class, 'getSaleProducts']);
 Route::get('/client/home/bestsellers', [ProductController::class, 'getBestSellerProducts']);
+Route::get('/client/home/categories', [CategoryController::class, 'getCategoriesHome']);
