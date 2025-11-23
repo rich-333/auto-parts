@@ -41,14 +41,16 @@ export function CartTable() {
                     {{ $cart->producto->precio }}
                   @endif*/
                 }
+                Precio
               </td>
               <td>
+                20
                 {
                   //<x-quantity :cantidad="$cart->cantidad" :idCarrito="$cart->id_carrito" :precio="$precioFinal"/>
                 }
               </td>
               <td className=" font-semibold">
-
+                Subtotal
                 {
                  //number_format($cart->cantidad * $precioFinal, 2) 
                 }

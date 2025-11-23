@@ -19,4 +19,16 @@ class CategoryController extends Controller
             'data' => $categorias
         ], 200);
     }
-}
+
+    public function getCategoriesShop() 
+    {
+        $categorias = Categoria::where('activa', true)
+            ->inRandomOrder()
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $categorias
+        ], 200);
+    }
+}   

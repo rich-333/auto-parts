@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Client\BrandController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
@@ -44,3 +45,5 @@ Route::get('/client/home/categories', [CategoryController::class, 'getCategories
 
 //SHOP
 Route::get('/client/shop/products', [ProductController::class, 'getShopProducts']);
+Route::get('/client/shop/brands', [BrandController::class, 'getBrands']);
+Route::get('/client/shop/categories', [CategoryController::class, 'getCategoriesShop']);
