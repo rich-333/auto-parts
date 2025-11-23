@@ -29,12 +29,18 @@ require __DIR__.'/settings.php';
 
 
 // API
+
+//ADMIN
 Route::get('/categorias', [CategoryController::class, 'index']);
 Route::post('/categorias/crear', [CategoryController::class, 'store']);
 Route::delete('/categorias/eliminar/{id}', [CategoryController::class, 'destroy']);
 Route::put('/categorias/editar/{id}', [CategoryController::class, 'update']);
 
 
+//CLIENT - HOME
 Route::get('/client/home/products', [ProductController::class, 'getSaleProducts']);
 Route::get('/client/home/bestsellers', [ProductController::class, 'getBestSellerProducts']);
 Route::get('/client/home/categories', [CategoryController::class, 'getCategoriesHome']);
+
+//SHOP
+Route::get('/client/shop/products', [ProductController::class, 'getShopProducts']);

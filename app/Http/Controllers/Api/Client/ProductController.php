@@ -59,4 +59,30 @@ class ProductController extends Controller
             'data' => $productos
         ], 200);
     }
+
+    // SHOP
+
+    public function getShopProducts() 
+    {
+        $productos = Producto::where('activo', true)
+            ->with([
+                'imagenes' => function ($q) {
+                    $q->where('es_principal', true);
+                },
+            'categoria',
+            'marca',
+            'descuento' => fn($q) =>
+                $q->where('activo', true)
+                    ->where('fecha_inicio', '<=', now())
+                    ->where('fecha_fin', '>=', now())
+                    ->orderBy('id_descuento', 'desc')
+                    ->take(1)
+            ])
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $productos
+        ], 200);
+    }
 }
