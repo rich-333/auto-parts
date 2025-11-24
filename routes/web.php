@@ -47,3 +47,7 @@ Route::get('/client/home/categories', [CategoryController::class, 'getCategories
 Route::get('/client/shop/products', [ProductController::class, 'getShopProducts']);
 Route::get('/client/shop/brands', [BrandController::class, 'getBrands']);
 Route::get('/client/shop/categories', [CategoryController::class, 'getCategoriesShop']);
+
+//DETAILS PRODUCT
+Route::get('/client/product/{id}', [ProductController::class, 'getProductById']);
+Route::get('/client/product/{id}/related', [ProductController::class, 'getRelatedProducts']);

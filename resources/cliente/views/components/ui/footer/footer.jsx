@@ -54,29 +54,29 @@ export function Footer() {
 
         <div className=" flex justify-between items-center border-y-2 w-full border-icons">
           <div>
-            <img src="images\logos\LogoTurboParts.png" alt="Turbo Parts" className="w-20"/>
+            <img src="/images/logos/LogoTurboParts.png" alt="Turbo Parts" className="w-20"/>
           </div>
           <nav className="flex items-center gap-3 ">
             <p className=" font-semibold text-xs text-txt-footer">Siguenos:</p>
             <ul className="flex items-center gap-1">
               <li>
                 <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"  className=" bg-icons w-10 h-10 rounded-full flex justify-center items-center">
-                  <img src="images\icons\footer\facebook.svg" className=" w-icon-footer h-icon-footer" alt="" aria-hidden="true"/>
+                  <img src="/images/icons/footer/facebook.svg" className=" w-icon-footer h-icon-footer" alt="" aria-hidden="true"/>
                 </a>
               </li>
               <li>
                 <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"  className=" bg-icons w-10 h-10 rounded-full flex justify-center items-center">
-                  <img src="images\icons\footer\twitter.svg" className=" w-3.5 h-3" alt="" aria-hidden="true"/>
+                  <img src="/images/icons/footer/twitter.svg" className=" w-3.5 h-3" alt="" aria-hidden="true"/>
                 </a>
               </li>
               <li>
                 <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className=" bg-icons w-10 h-10 rounded-full flex justify-center items-center">
-                  <img src="images\icons\footer\instagram.svg" className=" w-4 h-4" alt="" aria-hidden="true"/>
+                  <img src="/images/icons/footer/instagram.svg" className=" w-4 h-4" alt="" aria-hidden="true"/>
                 </a>
               </li>
               <li>
                 <a href="#" aria-label="YouTube" target="_blank" rel="noopener noreferrer" className=" bg-icons w-10 h-10 rounded-full flex justify-center items-center">
-                  <img src="images\icons\footer\youtube.svg" className=" w-3.5 h-3.5" alt="" aria-hidden="true"/>
+                  <img src="/images/icons/footer/youtube.svg" className=" w-3.5 h-3.5" alt="" aria-hidden="true"/>
                 </a>
               </li>
             </ul>
@@ -87,13 +87,13 @@ export function Footer() {
           <small className="opacity-50">Copyright 2025 © Turbo Parts Theme. All right reserved.</small>
           <ul className="flex items-center gap-3">
             <li>
-              <img src="images\icons\footer\mastercard.svg" alt="Mastercard"/>
+              <img src="/images/icons/footer/mastercard.svg" alt="Mastercard"/>
             </li>
             <li>
-              <img src="images\icons\footer\visa.svg" alt="Visa"/>
+              <img src="/images/icons/footer/visa.svg" alt="Visa"/>
             </li>
             <li>
-              <img src="images\icons\footer\paypal.svg" alt="PayPal"/>
+              <img src="/images/icons/footer/paypal.svg" alt="PayPal"/>
             </li>
           </ul>
         </div>

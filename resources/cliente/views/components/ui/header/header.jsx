@@ -7,7 +7,7 @@ export function Header() {
       <div className=" max-w-8xl flex justify-between items-center w-7xl mx-auto">
 
         <Link to="/" aria-label="Ir al inicio" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200">
-          <img src="images\logos\LogoTurboParts.png" alt="Turbo Parts" className="w-20 h-28"/>
+          <img src="/images/logos/LogoTurboParts.png" alt="Turbo Parts" className="w-20 h-28"/>
         </Link>
         <nav aria-label="Menú principal">
           <ul className="flex gap-4 font-semibold">
@@ -36,7 +36,7 @@ export function Header() {
         <div className="flex gap-2 items-center">
           <div className="flex gap-1.5 items-center">
             <Link to="/login" aria-label="Ir a iniciar sesión" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-110 hover:bg-icons/95 transition-all duration-200">
-              <img className="w-6 h-6 group-hover:brightness-125 transition" src="images/icons/header/profile.svg" alt="" aria-hidden="true"/>
+              <img className="w-6 h-6 group-hover:brightness-125 transition" src="/images/icons/header/profile.svg" alt="" aria-hidden="true"/>
             </Link>
             {
             /*<div>
@@ -54,10 +54,10 @@ export function Header() {
             }
           </div>
           <Link to="/favoritos" aria-label="Ver favoritos" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-110 hover:bg-icons/95 transition-all duration-200 relative">
-            <img className=" w-5 group-hover:brightness-125 transition" src="images/icons/header/favorite.svg" alt="" aria-hidden="true"/> 
+            <img className=" w-5 group-hover:brightness-125 transition" src="/images/icons/header/favorite.svg" alt="" aria-hidden="true"/> 
           </Link>
           <Link to="/carrito" aria-label="Ver carrito de compras" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-115 hover:bg-icons/95 transition-all duration-200 relative">
-            <img className=" w-5 group-hover:brightness-125 transition" src="images/icons/header/cart.svg" alt="" aria-hidden="true"/>
+            <img className=" w-5 group-hover:brightness-125 transition" src="/images/icons/header/cart.svg" alt="" aria-hidden="true"/>
           </Link>
         </div>
       </div>

@@ -28,15 +28,15 @@ export function CardProduct({ product = [] }) {
           alt={ product.nombre }
         />
         {
-          descuento ? (
+          descuento > 0 && (
             <Discount descuento={descuento}/>
-          ) : (<></>)
+          )
         }
         
         <ButtonFavorite/>
 
         <Link
-          to="/producto/1"
+          to={`/producto/${product.id_producto}`}
           className="absolute top-12 right-3 p-1 rounded-full bg-white/90 backdrop-blur-sm shadow-sm
                 hover:bg-discount hover:text-white hover:scale-110 active:scale-95 transition-all duration-200 group"
         >

@@ -1,32 +1,39 @@
 import { Phone } from "./info/phone";
 import { ServiceOrders } from "./info/serviceOrders";
 
-export function ProductInfo() {
+export function ProductInfo({ product }) {
+  const {
+    marca,
+    categoria,
+    precio,
+    descuento
+  } = product;
+
+  const des = descuento?.find(d => d.activo === 1);
+
+  const precioFinal = des
+    ? (precio - (precio * (des.valor / 100))).toFixed(2)
+    : null;
+
+  const formatMoney = (num) =>
+    new Intl.NumberFormat("es-BO", {
+      style: "currency",
+      currency: "BOB"
+    }).format(num);
+
   return (
   <section>
-    <p className=" font-normal">
-      High-quality additives protect against leaks and won’t harm gaskets, hoses, plastics or
-      original vehicle finish
-    </p>
-    <div className=" my-5">
+    <p className=" font-normal">{categoria.descripcion}</p>
+    <div className=" my-5 flex gap-2.5 items-end">
       {
-        /*
-        @php
-          $precioFinal = $producto->precio;
-          if ($producto->descuentos && $producto->descuentos->activo) {
-            $precioFinal -= ($producto->precio * $producto->descuentos->valor / 100);
-          }
-          
-        @endphp
-
-        @if($producto->descuentos && $producto->descuentos->activo)
-          <x-price_new
-            priceNew="{{ number_format($precioFinal, 2) }}"
-          />
-        @endif
-        <x-price_base
-          priceBase="{{ number_format($producto->precio, 2) }}"
-        />*/
+        des ? (
+          <>
+            <span className=" text-price font-bold text-2xl">{formatMoney(precioFinal)}</span>
+            <span className=" text-txt-footer font-medium line-through">{formatMoney(precio)}</span>
+          </>
+        ) : (
+          <span className="text-gray-900 font-bold text-2xl">{formatMoney(precio)}</span>
+        )
       }
     </div>
 
@@ -70,8 +77,8 @@ export function ProductInfo() {
     <hr className=" border-black/20 mb-6" />
 
     <div className=" flex flex-col gap-2">
-      <p className=" text-gray-600 font-normal">Categoria: <span className="text-black font-semibold">Producto Categoria Nombre</span></p>
-      <p className=" text-gray-600 font-normal">Marca: <span className="text-black font-semibold">Producto Marca Nombre</span></p>
+      <p className=" text-gray-600 font-normal">Categoria: <span className="text-black font-semibold">{ categoria.nombre }</span></p>
+      <p className=" text-gray-600 font-normal">Marca: <span className="text-black font-semibold">{ marca.nombre }</span></p>
     </div>
 
   </section>

@@ -21,7 +21,7 @@ export  function AppCliente() {
         <Route path="/carrito" element={<Cart/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/producto/1" element={<DetailsProduct/>}/>
+        <Route path="/producto/:id" element={<DetailsProduct/>}/>
 
       </Routes>
     </BrowserRouter>
