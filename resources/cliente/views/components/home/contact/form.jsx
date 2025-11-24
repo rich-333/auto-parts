@@ -7,23 +7,23 @@ export function Form() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className=" flex flex-col gap-2.5">
-          <label for="nombre" className=" text-black font-medium text-sm">Tu nombre *</label>
+          <label htmlFor="nombre" className=" text-black font-medium text-sm">Tu nombre *</label>
           <input className=" bg-white border-2 border-form-border shadow-xs rounded-lg py-2.5 px-2 focus:outline-discount/45" type="text" id="nombre"/>
         </div>
 
         <div className=" flex flex-col gap-2.5">
-          <label for="email" className=" text-black font-medium text-sm">Tu email *</label>
+          <label htmlFor="email" className=" text-black font-medium text-sm">Tu email *</label>
           <input className=" bg-white border-2 border-form-border shadow-xs rounded-lg py-2.5 px-2 focus:outline-discount/45" type="email" id="email"/>
         </div>
       </div>
 
       <div className=" flex flex-col gap-2.5">
-        <label for="tema" className=" text-black font-medium text-sm">Tema *</label>
+        <label htmlFor="tema" className=" text-black font-medium text-sm">Tema *</label>
         <input type="text" id="tema" className=" bg-white border-2 border-form-border shadow-xs rounded-lg py-2.5 px-2 focus:outline-discount/45"/>
       </div>  
 
       <div className=" flex flex-col gap-2.5">
-        <label for="mensaje" className=" text-black font-medium text-sm">Tu mensaje</label>
+        <label htmlFor="mensaje" className=" text-black font-medium text-sm">Tu mensaje</label>
         <textarea  className=" bg-white border-2 border-form-border shadow-xs rounded-lg py-2.5 px-2 focus:outline-discount/45" name="" id="mensaje" cols="5" rows="4"></textarea>
       </div>
 

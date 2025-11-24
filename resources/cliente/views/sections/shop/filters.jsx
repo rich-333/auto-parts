@@ -5,7 +5,7 @@ import { SearchBar } from "../../../../admin/views/components/ui/search/search"
 import { useBrands } from "../../../hooks/shop/useBrands"
 import { useCategories } from "../../../hooks/shop/useCategories"
 
-export function Filters() {
+export function Filters({ filters, setFilters }) {
   const { brands } = useBrands();
   const { categories } = useCategories();
 
@@ -13,11 +13,11 @@ export function Filters() {
     <section>
       <form action="">
         <div className=" mb-8">
-          <SearchBar/>
+          <SearchBar value={filters.search} onChange={(value) => setFilters(prev => ({ ...prev, search: value }))}/>
         </div>
-        <Category categories={categories}/>
-        <Price/>
-        <Brand brands={brands}/>
+        <Category categories={categories} filters={filters} setFilters={setFilters}/>
+        <Price filters={filters} setFilters={setFilters}/>
+        <Brand brands={brands} filters={filters} setFilters={setFilters}/>
       </form>
     </section>
   )

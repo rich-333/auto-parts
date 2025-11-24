@@ -2,8 +2,7 @@ import stylePagination from "../../../../css/ui/Pagination.module.css"
 import { ChevronRight, ChevronLeft } from "lucide-react"
 
 export function Pagination({ page, maxPage, goTo }) {
-  const primeraPagina = 1;
-  const ultimaPagina = maxPage - 1;
+  const ultimaPagina = maxPage;
 
   const handlePreviusChange = () => {
     if(page > 0)
@@ -29,7 +28,7 @@ export function Pagination({ page, maxPage, goTo }) {
       }
 
       {
-        Array.from({ length: maxPage }).map((_, index) => (
+        Array.from({ length: maxPage + 1 }).map((_, index) => (
           <button
             key={index} 
             onClick={() => goTo(index)}

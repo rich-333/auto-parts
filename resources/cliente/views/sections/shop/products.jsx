@@ -3,8 +3,8 @@ import { ListProducts } from "../../components/shop/products/listProducts"
 import { Pagination } from "../../components/ui/pagination/pagination"
 import { useProducts } from "../../../hooks/shop/useProducts"
 
-export function Products() {
-  const { currentProducts, page, maxPage, goTo } = useProducts()
+export function Products({ filters }) {
+  const { currentProducts, page, maxPage, goTo } = useProducts(filters)
 
   return (
     <section>

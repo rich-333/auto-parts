@@ -1,11 +1,9 @@
-import React, { useState } from "react";
 import { Search, X } from "lucide-react";
 
-export function SearchBar({ placeholder = "Buscar..." }) {
-  const [query, setQuery] = useState("");
+export function SearchBar({ placeholder = "Buscar...", value, onChange }) {
 
   const handleClear = () => {
-    setQuery("");
+    onChange("");
   };
 
   return (
@@ -16,13 +14,13 @@ export function SearchBar({ placeholder = "Buscar..." }) {
 
       <input
         type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="flex-1 px-3 py-2 text-gray-700 placeholder-gray-500/80 focus:outline-none rounded-l-full w-full"
       />
 
-      {query && (
+      {value && (
         <button
           onClick={handleClear}
           className="pr-3 text-gray-400 hover:text-gray-600 transition-colors"
