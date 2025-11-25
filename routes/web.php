@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\Api\Client\CategoryController;
-use App\Http\Controllers\Api\Client\ProductController;  
+use App\Http\Controllers\Api\Client\ProductController;
+use App\Http\Controllers\Api\Client\AuthClienteController;  
 
 
 /*Route::get('/', function () {
@@ -51,3 +52,9 @@ Route::get('/client/shop/categories', [CategoryController::class, 'getCategories
 //DETAILS PRODUCT
 Route::get('/client/product/{id}', [ProductController::class, 'getProductById']);
 Route::get('/client/product/{id}/related', [ProductController::class, 'getRelatedProducts']);
+
+//LOGIN - SIGN UP
+
+Route::post('/client/register', [AuthClienteController::class, 'register']);
+Route::post('/client/login', [AuthClienteController::class, 'login']);
+Route::post('/client/logout', [AuthClienteController::class, 'logout']);

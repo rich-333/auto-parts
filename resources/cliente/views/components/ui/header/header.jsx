@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import { UserContext } from "../../../../context/UserContext"
 
 export function Header() {
+  const { user, logout } = useContext(UserContext);
+
   return (
     <header className=" bg-heading text-white max-h-28 sticky top-0 z-40">
       <div className=" max-w-8xl flex justify-between items-center w-7xl mx-auto">
@@ -35,9 +39,29 @@ export function Header() {
         </nav>
         <div className="flex gap-2 items-center">
           <div className="flex gap-1.5 items-center">
-            <Link to="/login" aria-label="Ir a iniciar sesión" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-110 hover:bg-icons/95 transition-all duration-200">
+            <Link to={user ? "/perfil" : "/login"} aria-label="Ir a iniciar sesión" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-110 hover:bg-icons/95 transition-all duration-200">
               <img className="w-6 h-6 group-hover:brightness-125 transition" src="/images/icons/header/profile.svg" alt="" aria-hidden="true"/>
             </Link>
+            <div>
+              {
+                user ? (
+                  <>
+                  <p className="opacity-75 text-xs font-normal">{user.nombre}</p>
+                    <button 
+                      onClick={logout}
+                      className="text-xs font-semibold hover:underline cursor-pointer transition-all duration-200" 
+                    >
+                      Cerrar sesión
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/signup" className=" block text-xs font-normal opacity-75">Registrarse</Link>
+                    <span className="text-xs font-semibold">Cuenta</span>
+                  </>
+                )
+              }
+            </div>
             {
             /*<div>
               @if(Auth::check())
