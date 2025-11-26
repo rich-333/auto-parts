@@ -20,7 +20,7 @@ export function Sidebar() {
       
       <div className="flex items-center justify-center mb-8 px-3">
         <a href="" className='w-20 h-15 flex items-center'>
-          <img src="images\logos\LogoTurboParts.png" alt="Turbo Parts" className="w-20 h-28"/>
+          <img src="/images/logos/LogoTurboParts.png" alt="Turbo Parts" className="w-20 h-28"/>
         </a>
       </div>
 
