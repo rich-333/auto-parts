@@ -80,7 +80,7 @@ export function Header() {
           <Link to="/favoritos" aria-label="Ver favoritos" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-110 hover:bg-icons/95 transition-all duration-200 relative">
             <img className=" w-5 group-hover:brightness-125 transition" src="/images/icons/header/favorite.svg" alt="" aria-hidden="true"/> 
           </Link>
-          <Link to="/carrito" aria-label="Ver carrito de compras" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-115 hover:bg-icons/95 transition-all duration-200 relative">
+          <Link to={user ? "/carrito" : "/login"} aria-label="Ver carrito de compras" className="group bg-icons border border-border-icons rounded-full w-10 h-10 flex justify-center items-center hover:scale-115 hover:bg-icons/95 transition-all duration-200 relative">
             <img className=" w-5 group-hover:brightness-125 transition" src="/images/icons/header/cart.svg" alt="" aria-hidden="true"/>
           </Link>
         </div>

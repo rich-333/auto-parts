@@ -9,8 +9,8 @@ export function EmptyPage({ icon, description }) {
 
       <div className=" flex flex-col items-center gap-4">
         <p className=" font-normal text-center">{ description }</p>
-        <ButtonPrimary text="Volver a la tienda" styles=" bg-discount text-white px-6 py-3 rounded-lg active:outline-4 outline-discount 
-        active:outline-offset-2"/>
+        <ButtonPrimary link="/" text="Volver a la tienda" styles=" bg-discount text-white px-6 py-3 rounded-lg focus:outline-4 outline-discount 
+        focus:outline-offset-2"/>
       </div>
     </section>
   )

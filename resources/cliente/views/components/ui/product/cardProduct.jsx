@@ -4,7 +4,7 @@ import { CardHeader } from "./cardHeader"
 import { Discount } from "./dicount"
 import { Link } from "react-router-dom"
 
-export function CardProduct({ product = [] }) {
+export function CardProduct({ product = [], onAddToCart }) {
   const mainImage = product.imagenes?.[0]?.url_imagen
   ? `http://localhost:8000/${product.imagenes[0].url_imagen}`
   : 'images/components/clients/product/ejem.svg';
@@ -33,7 +33,7 @@ export function CardProduct({ product = [] }) {
           )
         }
         
-        <ButtonFavorite/>
+        <ButtonFavorite id_producto={product.id_producto} />
 
         <Link
           to={`/producto/${product.id_producto}`}
@@ -48,7 +48,13 @@ export function CardProduct({ product = [] }) {
       </div>
 
       <div className="py-5">
-        <CardHeader nombre={product.nombre} precSinDesc={precioFormateado} precDes={precioDescuentoFormateado} description={product.descripcion}/>
+        <CardHeader 
+          nombre={product.nombre} 
+          precSinDesc={precioFormateado} 
+          precDes={precioDescuentoFormateado} 
+          description={product.descripcion}
+          productId={product.id_producto}
+        />
 
         <CardFooter/>
       </div>

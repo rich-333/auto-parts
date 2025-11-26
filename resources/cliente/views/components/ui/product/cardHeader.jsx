@@ -1,4 +1,7 @@
-export function CardHeader({ nombre = "", precDes = 0, precSinDesc = 0 , description = ""}) {
+import { ButtonCart } from "../buttons/buttonCart";
+
+export function CardHeader({ nombre = "", precDes = 0, precSinDesc = 0 , description = "", productId}) {
+
   return (
     <header className="flex flex-col gap-2 mb-3">
       <div className=" flex gap-2">
@@ -21,11 +24,7 @@ export function CardHeader({ nombre = "", precDes = 0, precSinDesc = 0 , descrip
           }
         </div>
 
-        <form action="{{ route('carrito.add', $producto->id_producto) }}" method="POST">
-          <button type="submit" className="bg-discount rounded-lg p-2 transition-all duration-200 hover:scale-110 active:scale-95 hover:shadow-md cursor-pointer active:outline-4 outline-discount active:outline-offset-2">
-            <img src="/images/icons/header/cart.svg" alt=""/>
-          </button>
-        </form>
+        <ButtonCart productId={productId}/>
 
       </div>
       <div className=" border border-carousel-border w-full"></div>

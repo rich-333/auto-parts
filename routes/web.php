@@ -6,7 +6,10 @@ use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\Api\Client\CategoryController;
 use App\Http\Controllers\Api\Client\ProductController;
-use App\Http\Controllers\Api\Client\AuthClienteController;  
+use App\Http\Controllers\Api\Client\AuthClienteController;
+use App\Http\Controllers\Api\Client\FavoriteController;  
+use App\Http\Controllers\Api\Admin\CategoryAdminController;
+use App\Http\Controllers\Api\Client\CartController;
 
 
 /*Route::get('/', function () {
@@ -33,10 +36,10 @@ require __DIR__.'/settings.php';
 // API
 
 //ADMIN
-Route::get('/categorias', [CategoryController::class, 'index']);
-Route::post('/categorias/crear', [CategoryController::class, 'store']);
-Route::delete('/categorias/eliminar/{id}', [CategoryController::class, 'destroy']);
-Route::put('/categorias/editar/{id}', [CategoryController::class, 'update']);
+Route::get('/categorias', [CategoryAdminController::class, 'index']);
+Route::post('/categorias/crear', [CategoryAdminController::class, 'store']);
+Route::delete('/categorias/eliminar/{id}', [CategoryAdminController::class, 'destroy']);
+Route::put('/categorias/editar/{id}', [CategoryAdminController::class, 'update']);
 
 
 //CLIENT - HOME
@@ -58,3 +61,16 @@ Route::get('/client/product/{id}/related', [ProductController::class, 'getRelate
 Route::post('/client/register', [AuthClienteController::class, 'register']);
 Route::post('/client/login', [AuthClienteController::class, 'login']);
 Route::post('/client/logout', [AuthClienteController::class, 'logout']);
+
+
+//FAVORITE
+
+Route::post('/favorito/add', [FavoriteController::class, 'add']);
+Route::delete('/favorito/{id}', [FavoriteController::class, 'delete']);
+Route::get('/favoritos/lista/{idUsuario}', [FavoriteController::class, 'list'])->name('favoritos.lista');
+
+//CART
+
+Route::post('/carrito/add', [CartController::class, 'add']);
+Route::get('/carrito/lista/{idUsuario}', [CartController::class, 'list'])->name('carrito.lista');
+Route::delete('/carrito/{id}', [CartController::class, 'delete']);

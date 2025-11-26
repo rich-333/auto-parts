@@ -10,9 +10,7 @@ export function SectionSearch({title = "Lista......", }) {
       <div className=" flex items-center gap-3">
         <SearchBar placeholder="Buscar categorias......"/>
         <Select placeholder="Estado"/>
-        <Link to="/categories/create">
-          <ButtonPrimary text="Agregar" styles="bg-discount text-white px-5 py-2.5 rounded-lg focus:outline-4 outline-discount focus:outline-offset-2"/>
-        </Link>
+        <ButtonPrimary link="/categories/create" text="Agregar" styles="bg-discount text-white px-5 py-2.5 rounded-lg focus:outline-4 outline-discount focus:outline-offset-2"/>
       </div>
     </section>
   )

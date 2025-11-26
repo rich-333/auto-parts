@@ -40,13 +40,13 @@ export async function createCategory(formData) {
   return await response.json();
 }
 
-const csrf = document.querySelector('meta[name="csrf-token"]').content;
-
 export async function deleteCategory(id) {
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
   const response = await fetch(`http://127.0.0.1:8000/categorias/eliminar/${id}`, {
     method: "DELETE",
     headers: {
-      "X-CSRF-TOKEN": csrf,
+      "X-CSRF-TOKEN": csrfToken,
       "Accept": "application/json"
     }
   });

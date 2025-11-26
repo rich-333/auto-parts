@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Favorito extends Model{
     protected $table = 'favoritos';
     protected $primaryKey = 'id_favorito';
+    public $timestamps = false;
 
     protected $fillable = [
         'id_usuario',
